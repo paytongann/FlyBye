@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.SearchFlightsActivity">
+
+    <TextView
+        android:id="@+id/tv_search_flights_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Search Flights"
+        android:fontFamily="@font/alegreya"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:textSize="30sp"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_departure_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_search_flights_text"
+        android:text="Enter Departure Destination Info"
+        android:textSize="20sp"
+        android:fontFamily="@font/alegreya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_departure_text"
+        app:layout_constraintStart_toStartOf="@id/tv_departure_text"
+        android:layout_marginLeft="30dp" />
+
+    <Spinner
+        android:id="@+id/spinner_airport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spinner_state"
+        app:layout_constraintStart_toStartOf="@id/tv_departure_text"
+        android:layout_marginLeft="30dp" />
+
+    <Button
+        android:id="@+id/select_departure_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spinner_airport"
+        app:layout_constraintStart_toStartOf="@id/spinner_airport"
+        android:text="Select Departure Date"/>
+
+
+    <TextView
+        android:id="@+id/tv_arrival_text"
+        app:layout_constraintTop_toBottomOf="@id/select_departure_date"
+        app:layout_constraintStart_toStartOf="@id/spinner_airport"
+        android:text="Enter Arrival Destination Info"
+        android:textSize="20sp"
+        android:fontFamily="@font/alegreya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_state_arrival"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_arrival_text"
+        app:layout_constraintStart_toStartOf="@id/tv_departure_text"
+        android:layout_marginLeft="30dp" />
+
+    <Spinner
+        android:id="@+id/spinner_airport_arrival"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spinner_state_arrival"
+        app:layout_constraintStart_toStartOf="@id/tv_departure_text"
+        android:layout_marginLeft="30dp" />
+
+    <Button
+        android:id="@+id/select_return_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spinner_airport_arrival"
+        app:layout_constraintStart_toStartOf="@id/spinner_airport"
+        android:text="Select Return Date"/>
+
+    <TextView
+        android:id="@+id/tv_optional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya"
+        android:text="(Optional For One Way Tickets)"
+        app:layout_constraintStart_toEndOf="@id/select_return_date"
+        app:layout_constraintTop_toBottomOf="@id/spinner_airport_arrival"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/btn_find_flights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="@font/alegreya"
+        android:text="Find Flights"
+        android:backgroundTint="#2761FF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="75dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

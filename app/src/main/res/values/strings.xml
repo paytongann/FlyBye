@@ -1,0 +1,450 @@
+<resources>
+    <string name="app_name">Fly Bye</string>
+    <string name="btn_txt_search_flights">search flights</string>
+    <string name="tv_txt_fly_bye">Fly Bye</string>
+
+    <string-array name="states">
+        <item>Select State</item>
+        <item>Alabama</item>
+        <item>Alaska</item>
+        <item>Arizona</item>
+        <item>Arkansas</item>
+        <item>California</item>
+        <item>Colorado</item>
+        <item>Connecticut</item>
+        <item>District of Columbia</item>
+        <item>Florida</item>
+        <item>Georgia</item>
+        <item>Hawaii</item>
+        <item>Idaho</item>
+        <item>Illinois</item>
+        <item>Indiana</item>
+        <item>Iowa</item>
+        <item>Kansas</item>
+        <item>Kentucky</item>
+        <item>Louisiana</item>
+        <item>Maine</item>
+        <item>Maryland</item>
+        <item>Massachusetts</item>
+        <item>Michigan</item>
+        <item>Minnesota</item>
+        <item>Mississippi</item>
+        <item>Missouri</item>
+        <item>Montana</item>
+        <item>Nebraska</item>
+        <item>Nevada</item>
+        <item>New Hampshire</item>
+        <item>New Jersey</item>
+        <item>New Mexico</item>
+        <item>New York</item>
+        <item>North Carolina</item>
+        <item>North Dakota</item>
+        <item>Ohio</item>
+        <item>Oklahoma</item>
+        <item>Oregon</item>
+        <item>Pennsylvania</item>
+        <item>Rhode Island</item>
+        <item>South Carolina</item>
+        <item>South Dakota</item>
+        <item>Tennessee</item>
+        <item>Texas</item>
+        <item>Utah</item>
+        <item>Vermont</item>
+        <item>Virginia</item>
+        <item>Washington</item>
+        <item>West Virginia</item>
+        <item>Wisconsin</item>
+        <item>Wyoming</item>
+    </string-array>
+
+    <string-array name="alabama_airports">
+        <item>Select Airport</item>
+        <item>Birmingham International Airport</item>
+        <item>Dothan Regional Airport</item>
+        <item>Huntsville International Airport</item>
+        <item>Mobile</item>
+        <item>Montgomery</item>
+    </string-array>
+
+    <string-array name="alaska_airports">
+        <item>Select Airport</item>
+        <item>Anchorage International Airport</item>
+        <item>Fairbanks International Airport</item>
+        <item>Juneau International Airport</item>
+    </string-array>
+
+    <string-array name="arizona_airports">
+        <item>Select Airport</item>
+        <item>Flagstaff</item>
+        <item>Phoenix, Phoenix Sky Harbor International Airport</item>
+        <item>Tucson International Airport</item>
+        <item>Yuma International Airport</item>
+    </string-array>
+
+    <string-array name="arkansas_airports">
+        <item>Select Airport</item>
+        <item>Fayetteville</item>
+        <item>Little Rock National Airport</item>
+        <item>Northwest Arkansas Regional Airport</item>
+    </string-array>
+
+    <string-array name="california_airports">
+        <item>Select Airport</item>
+        <item>Burbank</item>
+        <item>Fresno</item>
+        <item>Long Beach</item>
+        <item>Los Angeles International Airport</item>
+        <item>Oakland</item>
+        <item>Ontario</item>
+        <item>Palm Springs</item>
+        <item>Sacramento</item>
+        <item>San Diego</item>
+        <item>San Francisco International Airport</item>
+        <item>San Jose</item>
+        <item>Santa Ana</item>
+    </string-array>
+
+    <string-array name="colorado_airports">
+        <item>Select Airport</item>
+        <item>Aspen</item>
+        <item>Colorado Springs</item>
+        <item>Denver International Airport</item>
+        <item>Grand Junction</item>
+        <item>Pueblo</item>
+    </string-array>
+
+    <string-array name="connecticut_airports">
+        <item>Select Airport</item>
+        <item>Hartford</item>
+        <item>Tweed New Haven</item>
+    </string-array>
+
+    <string-array name="district_of_columbia_airports">
+        <item>Select Airport</item>
+        <item>Washington, Dulles International Airport</item>
+        <item>Washington National Airport</item>
+    </string-array>
+
+    <string-array name="florida_airports">
+        <item>Select Airport</item>
+        <item>Daytona Beach</item>
+        <item>Fort Lauderdale-Hollywood International Airport</item>
+        <item>Fort Meyers</item>
+        <item>Jacksonville</item>
+        <item>Key West International Airport</item>
+        <item>Miami International Airport</item>
+        <item>Orlando</item>
+        <item>Pensacola</item>
+        <item>St. Petersburg</item>
+        <item>Sarasota</item>
+        <item>Tampa</item>
+        <item>West Palm Beach</item>
+        <item>Panama City-Bay County International Airport</item>
+    </string-array>
+
+    <string-array name="georgia_airports">
+        <item>Select Airport</item>
+        <item>Atlanta Hartsfield International Airport</item>
+        <item>Augusta</item>
+        <item>Savannah</item>
+    </string-array>
+
+    <string-array name="hawaii_airports">
+        <item>Select Airport</item>
+        <item>Hilo</item>
+        <item>Honolulu International Airport</item>
+        <item>Kahului</item>
+        <item>Kailua</item>
+        <item>Lihue</item>
+    </string-array>
+
+    <string-array name="idaho_airports">
+        <item>Select Airport</item>
+        <item>Boise</item>
+    </string-array>
+
+    <string-array name="illinois_airports">
+        <item>Select Airport</item>
+        <item>Chicago Midway Airport</item>
+        <item>Chicago OHare International Airport Airport</item>
+        <item>Moline</item>
+        <item>Peoria</item>
+    </string-array>
+
+    <string-array name="indiana_airports">
+        <item>Select Airport</item>
+        <item>Evansville</item>
+        <item>Fort Wayne</item>
+        <item>Indianapolis International Airport</item>
+        <item>South Bend</item>
+    </string-array>
+
+    <string-array name="iowa_airports">
+        <item>Select Airport</item>
+        <item>Cedar Rapids</item>
+        <item>Des Moines</item>
+    </string-array>
+
+    <string-array name="kansas_airports">
+        <item>Select Airport</item>
+        <item>Wichita</item>
+    </string-array>
+
+    <string-array name="kentucky_airports">
+        <item>Select Airport</item>
+        <item>Lexington</item>
+        <item>Louisville</item>
+    </string-array>
+
+    <string-array name="louisiana_airports">
+        <item>Select Airport</item>
+        <item>Baton Rouge</item>
+        <item>New Orleans International Airport</item>
+        <item>Shreveport</item>
+    </string-array>
+
+    <string-array name="maine_airports">
+        <item>Select Airport</item>
+        <item>Augusta</item>
+        <item>Bangor</item>
+        <item>Portland</item>
+    </string-array>
+
+    <string-array name="maryland_airports">
+        <item>Select Airport</item>
+        <item>Baltimore</item>
+    </string-array>
+
+    <string-array name="massachusetts_airports">
+        <item>Select Airport</item>
+        <item>Boston, Logan International Airport</item>
+        <item>Hyannis</item>
+        <item>Nantucket</item>
+        <item>Worcester</item>
+    </string-array>
+
+    <string-array name="michigan_airports">
+        <item>Select Airport</item>
+        <item>Battlecreek</item>
+        <item>Detroit Metropolitan Airport</item>
+        <item>Detroit</item>
+        <item>Flint</item>
+        <item>Grand Rapids</item>
+        <item>Kalamazoo-Battle Creek International Airport</item>
+        <item>Lansing</item>
+        <item>Saginaw</item>
+    </string-array>
+
+    <string-array name="minnesota_airports">
+        <item>Select Airport</item>
+        <item>Duluth</item>
+        <item>Minneapolis/St.Paul International Airport</item>
+        <item>Rochester</item>
+    </string-array>
+
+    <string-array name="mississippi_airports">
+        <item>Select Airport</item>
+        <item>Gulfport</item>
+        <item>Jackson</item>
+    </string-array>
+
+    <string-array name="missouri_airports">
+        <item>Select Airport</item>
+        <item>Kansas City</item>
+        <item>St Louis, Lambert International Airport</item>
+        <item>Springfield</item>
+    </string-array>
+
+    <string-array name="montana_airports">
+        <item>Select Airport</item>
+        <item>Billings</item>
+    </string-array>
+
+    <string-array name="nebraska_airports">
+        <item>Select Airport</item>
+        <item>Lincoln</item>
+        <item>Omaha</item>
+    </string-array>
+
+    <string-array name="nevada_airports">
+        <item>Select Airport</item>
+        <item>Las Vegas, Las Vegas McCarran International Airport</item>
+        <item>Reno-Tahoe International Airport</item>
+    </string-array>
+
+    <string-array name="new_hampshire_airports">
+        <item>Select Airport</item>
+        <item>Manchester</item>
+    </string-array>
+
+    <string-array name="new_jersey_airports">
+        <item>Select Airport</item>
+        <item>Atlantic City International Airport</item>
+        <item>Newark International Airport</item>
+        <item>Trenton</item>
+    </string-array>
+
+    <string-array name="new_mexico_airports">
+        <item>Select Airport</item>
+        <item>Albuquerque International Airport</item>
+        <item>Alamogordo</item>
+    </string-array>
+
+    <string-array name="new_york_airports">
+        <item>Select Airport</item>
+        <item>Albany International Airport</item>
+        <item>Buffalo</item>
+        <item>Islip</item>
+        <item>New York, John F Kennedy International Airport</item>
+        <item>New York, La Guardia Airport</item>
+        <item>Newburgh</item>
+        <item>Rochester</item>
+        <item>Syracuse</item>
+        <item>Westchester</item>
+    </string-array>
+
+    <string-array name="north_carolina_airports">
+        <item>Select Airport</item>
+        <item>Asheville</item>
+        <item>Charlotte/Douglas International Airport</item>
+        <item>Fayetteville</item>
+        <item>Greensboro</item>
+        <item>Raleigh</item>
+        <item>Winston-Salem</item>
+    </string-array>
+
+    <string-array name="north_dakota_airports">
+        <item>Select Airport</item>
+        <item>Bismark</item>
+        <item>Fargo</item>
+    </string-array>
+
+    <string-array name="ohio_airports">
+        <item>Select Airport</item>
+        <item>Akron</item>
+        <item>Cincinnati</item>
+        <item>Cleveland</item>
+        <item>Columbus</item>
+        <item>Dayton</item>
+        <item>Toledo</item>
+    </string-array>
+
+    <string-array name="oklahoma_airports">
+        <item>Select Airport</item>
+        <item>Oklahoma City</item>
+        <item>Tulsa</item>
+    </string-array>
+
+    <string-array name="oregon_airports">
+        <item>Select Airport</item>
+        <item>Eugene</item>
+        <item>Portland International Airport</item>
+        <item>Portland, Hillsboro Airport</item>
+        <item>Salem</item>
+    </string-array>
+
+    <string-array name="pennsylvania_airports">
+        <item>Select Airport</item>
+        <item>Allentown</item>
+        <item>Erie</item>
+        <item>Harrisburg</item>
+        <item>Philadelphia</item>
+        <item>Pittsburgh</item>
+        <item>Scranton</item>
+    </string-array>
+
+    <string-array name="rhode_island_airports">
+        <item>Select Airport</item>
+        <item>Providence - T.F. Green Airport</item>
+    </string-array>
+
+    <string-array name="south_carolina_airports">
+        <item>Select Airport</item>
+        <item>Charleston</item>
+        <item>Columbia</item>
+        <item>Greenville</item>
+        <item>Myrtle Beach</item>
+    </string-array>
+
+    <string-array name="south_dakota_airports">
+        <item>Select Airport</item>
+        <item>Pierre</item>
+        <item>Rapid City</item>
+        <item>Sioux Falls</item>
+    </string-array>
+
+    <string-array name="tennessee_airports">
+        <item>Select Airport</item>
+        <item>Bristol</item>
+        <item>Chattanooga</item>
+        <item>Knoxville</item>
+        <item>Memphis</item>
+        <item>Nashville</item>
+    </string-array>
+
+    <string-array name="texas_airports">
+        <item>Select Airport</item>
+        <item>Amarillo</item>
+        <item>Austin Bergstrom International Airport</item>
+        <item>Corpus Christi</item>
+        <item>Dallas Love Field Airport</item>
+        <item>Dallas/Fort Worth International Airport</item>
+        <item>El Paso</item>
+        <item>Houston, William B Hobby Airport</item>
+        <item>Houston, George Bush Intercontinental Airport</item>
+        <item>Lubbock</item>
+        <item>Midland</item>
+        <item>San Antonio International Airport</item>
+    </string-array>
+
+    <string-array name="utah_airports">
+        <item>Select Airport</item>
+        <item>Salt Lake City</item>
+    </string-array>
+
+    <string-array name="vermont_airports">
+        <item>Select Airport</item>
+        <item>Burlington</item>
+        <item>Montpelier</item>
+        <item>Rutland</item>
+    </string-array>
+
+    <string-array name="virginia_airports">
+        <item>Select Airport</item>
+        <item>Dulles</item>
+        <item>Newport News</item>
+        <item>Norfolk</item>
+        <item>Richmond</item>
+        <item>Roanoke</item>
+    </string-array>
+
+    <string-array name="washington_airports">
+        <item>Select Airport</item>
+        <item>Pasco, Pasco/Tri-Cities Airport</item>
+        <item>Seattle, Tacoma International Airport</item>
+        <item>Spokane International Airport</item>
+    </string-array>
+
+    <string-array name="west_virginia_airports">
+        <item>Select Airport</item>
+        <item>Charleston</item>
+        <item>Clarksburg</item>
+        <item>Huntington Tri-State Airport</item>
+    </string-array>
+
+    <string-array name="wisconsin_airports">
+        <item>Select Airport</item>
+        <item>Green Bay</item>
+        <item>Madison</item>
+        <item>Milwaukee</item>
+    </string-array>
+
+    <string-array name="wyoming_airports">
+        <item>Select Airport</item>
+        <item>Casper</item>
+        <item>Cheyenne</item>
+        <item>Jackson Hole</item>
+        <item>Rock Springs</item>
+    </string-array>
+
+</resources>

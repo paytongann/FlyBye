@@ -334,22 +334,22 @@ public class SearchFlightsActivity extends AppCompatActivity {
         btnFindFlights.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (stateSpinner.getSelectedItem().toString().equals("Select State")) {
-                    Toast.makeText(SearchFlightsActivity.this, "Select Departure State", Toast.LENGTH_SHORT).show();
-                } else if (airportSpinner.getSelectedItem().toString().equals("Select Airport")) {
-                    Toast.makeText(SearchFlightsActivity.this, "Select Departure Airport", Toast.LENGTH_SHORT).show();
-                } else if (btnDepartureDate.getText().toString().equals("Select Departure Date")) {
-                    Toast.makeText(SearchFlightsActivity.this, "Select Departure Date", Toast.LENGTH_SHORT).show();
-                } else if (stateSpinnerArrival.getSelectedItem().toString().equals("Select State")) {
-                    Toast.makeText(SearchFlightsActivity.this, "Select Arrival State", Toast.LENGTH_SHORT).show();
-                } else if (airportSpinnerArrival.getSelectedItem().toString().equals("Select Airport")) {
-                    Toast.makeText(SearchFlightsActivity.this, "Select Arrival Airport", Toast.LENGTH_SHORT).show();
-                } else {
+//                if (stateSpinner.getSelectedItem().toString().equals("Select State")) {
+//                    Toast.makeText(SearchFlightsActivity.this, "Select Departure State", Toast.LENGTH_SHORT).show();
+//                } else if (airportSpinner.getSelectedItem().toString().equals("Select Airport")) {
+//                    Toast.makeText(SearchFlightsActivity.this, "Select Departure Airport", Toast.LENGTH_SHORT).show();
+//                } else if (btnDepartureDate.getText().toString().equals("Select Departure Date")) {
+//                    Toast.makeText(SearchFlightsActivity.this, "Select Departure Date", Toast.LENGTH_SHORT).show();
+//                } else if (stateSpinnerArrival.getSelectedItem().toString().equals("Select State")) {
+//                    Toast.makeText(SearchFlightsActivity.this, "Select Arrival State", Toast.LENGTH_SHORT).show();
+//                } else if (airportSpinnerArrival.getSelectedItem().toString().equals("Select Airport")) {
+//                    Toast.makeText(SearchFlightsActivity.this, "Select Arrival Airport", Toast.LENGTH_SHORT).show();
+//                } else {
                     //todo pass values to next activity
                     Intent intent = new Intent(SearchFlightsActivity.this, ResultsActivity.class);
                     setResult(RESULT_OK,intent);
                     startActivity(intent);
-                }
+//                }
             }
         });
     }

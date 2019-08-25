@@ -11,7 +11,7 @@ import com.example.flybye.R;
 
 public class CustomViewHolder extends RecyclerView.ViewHolder {
 
-    TextView tvQuoteId, tvCompanyName, tvPrice, tvDirect, tvDateTime;
+    TextView tvQuoteId, tvCompanyName, tvPrice, tvDirect, tvDate, tvTime;
     ImageView ivLogo;
 
 
@@ -21,7 +21,8 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
         tvCompanyName = itemView.findViewById(R.id.tv_company_name);
         tvPrice = itemView.findViewById(R.id.tv_price);
         tvDirect = itemView.findViewById(R.id.tv_directflight);
-        tvDateTime = itemView.findViewById(R.id.tv_date_time);
+        tvDate = itemView.findViewById(R.id.tv_date);
         ivLogo = itemView.findViewById(R.id.iv_logo);
+        tvTime = itemView.findViewById(R.id.tv_time);
     }
 }

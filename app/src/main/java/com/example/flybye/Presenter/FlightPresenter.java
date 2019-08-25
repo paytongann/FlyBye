@@ -47,19 +47,25 @@ public class FlightPresenter implements FlightContract {
                 .baseUrl("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/")
                 .build();
         apiInterface = retrofit.create(ApiInterface.class);
-        apiInterface.getFlightData("DAL-sky", "ATL-sky", "2019-09-01").
-        subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Results>() {
+        apiInterface.getFlightData("DFW-sky", "LGA-sky", "2019-09-01").
+        subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Response<Results>>() {
             @Override
             public void onSubscribe(Disposable d) {
 
             }
 
             @Override
-            public void onNext(Results results) {
-                Log.d(TAG, "onNext: " + results);
-                resultsView.onDataPopulated(results);
-
+            public void onNext(Response<Results> resultsResponse) {
+                ((ResultsActivity) context).editTitle(resultsResponse.body().places.get(0).cityName, resultsResponse.body().places.get(1).cityName);
+                resultsView.onDataPopulated(resultsResponse.body());
+                Log.d(TAG,"RESULT: " +resultsResponse.body());
             }
+
+//            @Override
+//            public void onNext(Results results) {
+//                ((ResultsActivity) context).editTitle(results.places.get(0).cityName, results.places.get(1).cityName);
+//                resultsView.onDataPopulated(results);
+//            }
 
             @Override
             public void onError(Throwable e) {

@@ -5,6 +5,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Path;
@@ -16,7 +17,7 @@ public interface ApiInterface {
 
     @Headers("x-rapidapi-key: 7afc17c527mshe16c80e24abb5fcp12ba64jsn7e8ac0a27b1f")
     @GET("apiservices/browsequotes/v1.0/US/USD/en-US/{originplace}/{destinationplace}/{outboundpartialdate}")
-    Observable<Results> getFlightData(
+    Observable<Response<Results>> getFlightData(
             @Path("originplace") String orginPlace,
             @Path("destinationplace") String destinationPlace,
             @Path("outboundpartialdate") String outbound);

@@ -18,6 +18,8 @@ import com.example.flybye.Presenter.FlightPresenter;
 import com.example.flybye.R;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
+import java.util.List;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -29,35 +31,37 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class ResultsActivity extends AppCompatActivity implements ResultsViewContract{
 
-    private ResultsViewContract resultsView;
     private FlightContract presenter;
     private RecyclerView recyclerView;
     private CustomAdapter adapter;
+    private TextView tvToFrom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
+        presenter = new FlightPresenter(ResultsActivity.this);
+        tvToFrom = findViewById(R.id.tv_flight_from_to);
         recyclerView = findViewById(R.id.recycleview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new CustomAdapter(this);
         recyclerView.setAdapter(adapter);
-        presenter = new FlightPresenter(ResultsActivity.this);
-        presenter.onBindView(this);
         presenter.initRetrofit();
+        presenter.onBindView(this);
 
     }
 
     @Override
     public void onDataPopulated(Results results) {
         adapter.setDataSet(results);
+        Log.d(TAG,"RES: "+results.quotes.size());
     }
 
 
-//
-//    public void editTitle(String from, String to){
-//        tvFromTo.setText("Leaving from " + from + " to " + to);
-//    }
+
+    public void editTitle(String from, String to){
+        tvToFrom.setText("Leaving from " + from + " to " + to);
+    }
 //
 //    public void editQuoteOne(String companyName, String dateTime, String directFlight, String price){
 //        Log.d(TAG, "companyId" + companyOne.split("-")[1]);

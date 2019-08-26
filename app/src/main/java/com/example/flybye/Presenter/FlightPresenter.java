@@ -40,15 +40,15 @@ public class FlightPresenter implements FlightContract {
     }
 
     @Override
-    public void initRetrofit() {
+    public void initRetrofit(String departureDate, String departureAirport, String arrivalAirport) {
         retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/")
                 .build();
         apiInterface = retrofit.create(ApiInterface.class);
-        apiInterface.getFlightData("DFW-sky", "LGA-sky", "2019-09-01").
-        subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Response<Results>>() {
+        apiInterface.getFlightData(departureAirport, arrivalAirport, departureDate).
+                subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Response<Results>>() {
             @Override
             public void onSubscribe(Disposable d) {
 
@@ -56,16 +56,22 @@ public class FlightPresenter implements FlightContract {
 
             @Override
             public void onNext(Response<Results> resultsResponse) {
-                ((ResultsActivity) context).editTitle(resultsResponse.body().places.get(0).cityName, resultsResponse.body().places.get(1).cityName);
-                resultsView.onDataPopulated(resultsResponse.body());
-                Log.d(TAG,"RESULT: " +resultsResponse.body());
+                if (resultsResponse.body().quotes.size() == 0){
+                    ((ResultsActivity) context).noQuotesAvaible();
+                } else {
+                    String orgin = resultsResponse.body().quotes.get(0).outboundLeg.originId.toString();
+                    String destination = resultsResponse.body().quotes.get(0).outboundLeg.destinationId.toString();
+                    if (orgin.equals(resultsResponse.body().places.get(0).placeId)) {
+                        orgin = resultsResponse.body().places.get(0).cityName;
+                        destination = resultsResponse.body().places.get(1).cityName;
+                    } else {
+                        orgin = resultsResponse.body().places.get(1).cityName;
+                        destination = resultsResponse.body().places.get(0).cityName;
+                    }
+                    ((ResultsActivity) context).editTitle(orgin, destination);
+                    resultsView.onDataPopulated(resultsResponse.body());
+                }
             }
-
-//            @Override
-//            public void onNext(Results results) {
-//                ((ResultsActivity) context).editTitle(results.places.get(0).cityName, results.places.get(1).cityName);
-//                resultsView.onDataPopulated(results);
-//            }
 
             @Override
             public void onError(Throwable e) {
@@ -83,46 +89,3 @@ public class FlightPresenter implements FlightContract {
         this.resultsView = view;
     }
 }
-
-//                    Log.d(TAG, "Log Quote id " + response.body().quotes.get(0).quoteId);
-//                    Log.d(TAG, "Log Minimum Price " + response.body().quotes.get(0).minPrice);
-//                    Log.d(TAG, "Log Direct Flight " + response.body().quotes.get(0).direct);
-//                    Log.d(TAG, "Log Day/Time " + response.body().quotes.get(0).quoteDateTime);
-//                    Log.d(TAG, "Log Carrier Id " + response.body().quotes.get(0).outboundLeg.carrierIds);
-//                    Log.d(TAG, "Log Quote id " + response.body().quotes.get(1).quoteId);
-//                    Log.d(TAG, "Log Minimum Price " + response.body().quotes.get(1).minPrice);
-//                    Log.d(TAG, "Log Direct Flight " + response.body().quotes.get(1).direct);
-//                    Log.d(TAG, "Log Day/Time " + response.body().quotes.get(1).quoteDateTime);
-//                    Log.d(TAG, "Log Carrier Id " + response.body().quotes.get(1).outboundLeg.carrierIds);
-//                    Log.d(TAG, "Log Quote id " + response.body().quotes.get(2).quoteId);
-//                    Log.d(TAG, "Log Minimum Price " + response.body().quotes.get(2).minPrice);
-//                    Log.d(TAG, "Log Direct Flight " + response.body().quotes.get(2).direct);
-//                    Log.d(TAG, "Log Day/Time " + response.body().quotes.get(2).quoteDateTime);
-//                    Log.d(TAG, "Log Carrier Id " + response.body().quotes.get(2).outboundLeg.carrierIds);
-//                    Log.d(TAG, "Log Carrier Id " + response.body().carriers.get(0).name + " " +response.body().carriers.get(0).carrierId);
-//                    Log.d(TAG, "Log Carrier Id " + response.body().carriers.get(1).name + " "+ response.body().carriers.get(1).carrierId);
-//                    Log.d(TAG, "Log Carrier Id " + response.body().carriers.get(2).name + " " + response.body().carriers.get(2).carrierId);
-//                    String departingCity = response.body().places.get(1).cityName;
-//                    String arrivingCity = response.body().places.get(0).cityName;
-//                    ((ResultsActivity) context).editTitle(departingCity, arrivingCity);
-//                    String carrierIdOne = response.body().quotes.get(0).outboundLeg.carrierIds.toString();
-//                    String dateTimeOne = response.body().quotes.get(0).quoteDateTime;
-//                    dateTimeOne = dateTimeOne.split("2019-")[1];
-//                    String dateOne = response.body().quotes.get(0).outboundLeg.departureDate.split("T")[0];
-//                    dateTimeOne = dateOne + "   " + dateTimeOne.split("T")[1];
-//                    Boolean directFlightOneBool = response.body().quotes.get(0).direct;
-//                    String directFlightOne;
-//                    if (directFlightOneBool.equals(false)) {
-//                        directFlightOne = "No";
-//                    } else {
-//                        directFlightOne = "Yes";
-//                    }
-//
-//                    String companyOne = response.body().carriers.get(0).name + "-[" +response.body().carriers.get(0).carrierId+"]";
-//                    String companyTwo = response.body().carriers.get(1).name + "-[" +response.body().carriers.get(1).carrierId+"]";
-////                    String companyThree = response.body().carriers.get(2).name + "-[" +response.body().carriers.get(2).carrierId+"]";
-//                    String companyThree = "";
-//                    ((ResultsActivity) context).getCompanyNames(companyOne);
-//                    String priceOne = response.body().quotes.get(0).minPrice.toString() + "0";
-//                    ((ResultsActivity) context).editQuoteOne(carrierIdOne,dateTimeOne,directFlightOne, priceOne);
-//                }

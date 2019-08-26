@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -46,9 +47,11 @@ public class ResultsActivity extends AppCompatActivity implements ResultsViewCon
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new CustomAdapter(this);
         recyclerView.setAdapter(adapter);
-        presenter.initRetrofit();
+        String departureDate = getIntent().getStringExtra("departureDate");
+        String departureAirport = getIntent().getStringExtra("departureAirport");
+        String arrivalAirport = getIntent().getStringExtra("arrivalAirport");
+        presenter.initRetrofit(departureDate, departureAirport, arrivalAirport);
         presenter.onBindView(this);
-
     }
 
     @Override
@@ -57,38 +60,13 @@ public class ResultsActivity extends AppCompatActivity implements ResultsViewCon
         Log.d(TAG,"RES: "+results.quotes.size());
     }
 
-
+    public void noQuotesAvaible(){
+        Intent intent = new Intent(ResultsActivity.this, NoResults.class);
+        setResult(RESULT_OK,intent);
+        startActivity(intent);
+    }
 
     public void editTitle(String from, String to){
         tvToFrom.setText("Leaving from " + from + " to " + to);
     }
-//
-//    public void editQuoteOne(String companyName, String dateTime, String directFlight, String price){
-//        Log.d(TAG, "companyId" + companyOne.split("-")[1]);
-//        Log.d(TAG, "companyname" + companyName);
-//        if (companyName.equals(companyOne.split("-")[1])){
-//            companyName = companyOne.split("-")[0];
-////        } else if (companyName.equals(companyTwo.split("-")[1])){
-////            companyName = companyTwo.split("-")[0];
-////        } else if (companyName.equals(companyThree.split("-")[1])){
-////            companyName = companyThree.split("-")[0];
-//        }
-//        tvCompanyNameOne.setText(companyName);
-//        tvDateTimeOne.setText(dateTime);
-//        tvPriceOne.setText("$"+ price + " USD");
-//        tvDirectFlightOne.setText("Direct Flight: " + directFlight);
-//        setImage(companyName);
-//    }
-//
-//    public void getCompanyNames(String nameOne){
-//        companyOne = nameOne;
-//    }
-//
-//    public void setImage(String companyName){
-//        if (companyName.equals("Frontier Airlines")){
-//            ivCompanyLogo.setImageResource(R.drawable.frontierairlines);
-//        } else if (companyName.equals("Spirit Airlines")){
-//            ivCompanyLogo.setImageResource(R.drawable.spiritairlines);
-//        }
-//    }
 }

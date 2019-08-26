@@ -1,18 +1,12 @@
 package com.example.flybye.View;
 
 import android.content.Context;
-import android.nfc.Tag;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.flybye.Model.Results;
 import com.example.flybye.R;
-
-import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
 
@@ -38,11 +32,43 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         //Company name
+        String companyName = "";
         String companyId = dataSet.quotes.get(position).outboundLeg.carrierIds.toString();
-        holder.tvCompanyName.setText(companyId);
+        for (int i=0; i<dataSet.carriers.size(); i++){
+            if (companyId.equals("["+dataSet.carriers.get(i).carrierId.toString()+"]")){
+                companyName = dataSet.carriers.get(i).name;
+            }
+        }
+        holder.tvCompanyName.setText(companyName);
+        //Logo
+        if (companyName.equals("Frontier Airlines")){
+            holder.ivLogo.setImageResource(R.drawable.frontierairlines);
+        } else if (companyName.equals("Spirit Airlines")){
+            holder.ivLogo.setImageResource(R.drawable.spiritairlines);
+        } else if (companyName.equals("jetBlue")){
+            holder.ivLogo.setImageResource(R.drawable.jetblue);
+        } else if (companyName.equals("Delta")){
+            holder.ivLogo.setImageResource(R.drawable.delta);
+        } else if (companyName.equals("Alaska Airlines")){
+            holder.ivLogo.setImageResource(R.drawable.alaskaairlines);
+        } else if (companyName.equals("Allegiant Air")){
+            holder.ivLogo.setImageResource(R.drawable.allegiantair);
+        } else if (companyName.equals("American Airlines")){
+            holder.ivLogo.setImageResource(R.drawable.americanairlines);
+        } else if (companyName.equals("Hawaiian Airlines")){
+            holder.ivLogo.setImageResource(R.drawable.hawaiianairline);
+        } else if (companyName.equals("Southwest Airlines")){
+            holder.ivLogo.setImageResource(R.drawable.southwest);
+        } else if (companyName.equals("United")){
+            holder.ivLogo.setImageResource(R.drawable.united);
+        } else if (companyName.equals("Sun Country Airlines")){
+            holder.ivLogo.setImageResource(R.drawable.suncountry);
+        } else if (companyName.equals("Boutique Air")){
+            holder.ivLogo.setImageResource(R.drawable.boutiqueair);
+        }
+
         //Quote number
         holder.tvQuoteId.setText("Quote " + dataSet.quotes.get(position).quoteId.toString());
-        Log.d(TAG,"SIZE: "+ dataSet.quotes.get(position));
         //Time
         String time = dataSet.quotes.get(position).quoteDateTime.split("T")[1];
         String hour = time.split(":")[0];
@@ -51,6 +77,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
             hour = timeConverter(hour);
             holder.tvTime.setText(hour + ":" + minute + " PM");
         } else {
+            if (hour.equals("00"))
+                hour = "12";
             holder.tvTime.setText(hour + ":" + minute + " AM");
         }
         //Date
@@ -96,8 +124,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
             time = "10";
         } else if (time.equals("23")){
             time = "11";
-        } else if (time.equals("00")){
-            time = "12";
         } return time;
     }
 }

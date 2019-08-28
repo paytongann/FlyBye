@@ -20,6 +20,6 @@ public interface ApiInterface {
     Observable<Response<Results>> getFlightData(
             @Path("originplace") String orginPlace,
             @Path("destinationplace") String destinationPlace,
-            @Path("outboundpartialdate") String outbound);
-    //      @Query("inboundpartialdate") String date);
+            @Path("outboundpartialdate") String outbound,
+            @Query("inboundpartialdate") String inbound);
 }

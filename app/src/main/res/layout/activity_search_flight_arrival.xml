@@ -4,58 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.SearchFlightsActivity">
+    tools:context=".View.SearchFlightArrivalActivity">
 
     <TextView
         android:id="@+id/tv_departure_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Enter Departure Destination Info"
+        android:text="Enter Arrival Destination Info"
         android:fontFamily="@font/alegreya"
         android:gravity="center"
-        android:textSize="25sp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"/>
 
     <Spinner
-        android:id="@+id/spinner_state"
+        android:id="@+id/spinner_state_arrival"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tv_departure_text"
         app:layout_constraintStart_toStartOf="@id/tv_departure_text"
-        android:spinnerMode="dialog"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp" />
+        android:layout_marginLeft="30dp"
+        android:spinnerMode="dialog"/>
 
     <Spinner
-        android:id="@+id/spinner_airport"
+        android:id="@+id/spinner_airport_arrival"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/spinner_state"
+        app:layout_constraintTop_toBottomOf="@id/spinner_state_arrival"
         app:layout_constraintStart_toStartOf="@id/tv_departure_text"
         android:spinnerMode="dialog"
         android:layout_marginLeft="30dp" />
 
     <DatePicker
-        android:id="@+id/departure_datepicker"
+        android:id="@+id/arrival_datepicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinner_airport"
+        app:layout_constraintTop_toBottomOf="@id/spinner_airport_arrival"
         android:headerBackground="#2761FF"
         />
 
     <Button
-        android:id="@+id/btn_arrival_details"
+        android:id="@+id/btn_find_flights"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimaryDark"
         android:fontFamily="@font/alegreya"
-        android:text="Arrival Details"
+        android:text="Find Flights"
         android:backgroundTint="#2761FF"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent">
-    </Button>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

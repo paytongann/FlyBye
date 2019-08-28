@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".View.NoResults"></activity>
+        <activity android:name=".View.SearchFlightArrivalActivity"></activity>
+        <activity
+            android:name=".View.SelectWayActivity"
+            android:label="Choose Type Of Flight"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"></activity>
+        <activity android:name=".View.NoResults" />
         <activity android:name=".View.ResultsActivity" />
         <activity android:name=".View.SearchFlightsActivity" />
         <activity android:name=".View.MainActivity">

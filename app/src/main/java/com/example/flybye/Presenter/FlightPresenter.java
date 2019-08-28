@@ -40,14 +40,14 @@ public class FlightPresenter implements FlightContract {
     }
 
     @Override
-    public void initRetrofit(String departureDate, String departureAirport, String arrivalAirport) {
+    public void initRetrofit(String departureDate, String departureAirport, String arrivalAirport,String arrivalDate) {
         retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/")
                 .build();
         apiInterface = retrofit.create(ApiInterface.class);
-        apiInterface.getFlightData(departureAirport, arrivalAirport, departureDate).
+        apiInterface.getFlightData(departureAirport, arrivalAirport, departureDate, arrivalDate).
                 subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Response<Results>>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -59,16 +59,6 @@ public class FlightPresenter implements FlightContract {
                 if (resultsResponse.body().quotes.size() == 0){
                     ((ResultsActivity) context).noQuotesAvaible();
                 } else {
-                    String orgin = resultsResponse.body().quotes.get(0).outboundLeg.originId.toString();
-                    String destination = resultsResponse.body().quotes.get(0).outboundLeg.destinationId.toString();
-                    if (orgin.equals(resultsResponse.body().places.get(0).placeId)) {
-                        orgin = resultsResponse.body().places.get(0).cityName;
-                        destination = resultsResponse.body().places.get(1).cityName;
-                    } else {
-                        orgin = resultsResponse.body().places.get(1).cityName;
-                        destination = resultsResponse.body().places.get(0).cityName;
-                    }
-                    ((ResultsActivity) context).editTitle(orgin, destination);
                     resultsView.onDataPopulated(resultsResponse.body());
                 }
             }

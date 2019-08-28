@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         btnSearchFlights.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SearchFlightsActivity.class);
+                Intent intent = new Intent(MainActivity.this, SelectWayActivity.class);
                 setResult(RESULT_OK,intent);
                 startActivity(intent);
             }

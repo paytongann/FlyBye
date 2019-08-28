@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.flybye.Model.Results;
 import com.example.flybye.R;
@@ -65,6 +66,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
             holder.ivLogo.setImageResource(R.drawable.suncountry);
         } else if (companyName.equals("Boutique Air")){
             holder.ivLogo.setImageResource(R.drawable.boutiqueair);
+        } else if (companyName.equals("Linear Air")){
+            holder.ivLogo.setImageResource(R.drawable.linearair);
         }
 
         //Quote number

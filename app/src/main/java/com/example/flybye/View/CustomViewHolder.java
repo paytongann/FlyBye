@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.flybye.Model.Results;
 import com.example.flybye.R;
 
 public class CustomViewHolder extends RecyclerView.ViewHolder {

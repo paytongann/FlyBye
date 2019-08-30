@@ -85,26 +85,24 @@ public class ResultsActivity extends AppCompatActivity implements ResultsViewCon
         year = year.split("-")[0];
         String month = departureDate.split("-")[1];
         String day = departureDate.split("-")[2];
-        String deptDate = year+month+day;
-
-        String yearArrival = arrivalDate.split("20")[1];
-        yearArrival = year.split("-")[0];
-        String monthArrival = arrivalDate.split("-")[1];
-        String dayArrival = arrivalDate.split("-")[2];
-        String arrDate = yearArrival+monthArrival+dayArrival;
-
-        String flightRoundTrip = "https://www.skyscanner.com/transport/flights/" + departureCode.toLowerCase() + "/" + arrivalCode.toLowerCase() + "/" +
-                deptDate + "/"+ arrDate+ "/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0" +
-                "&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results";
-        String flightOneway = "https://www.skyscanner.com/transport/flights/" + departureCode.toLowerCase() + "/" + arrivalCode.toLowerCase() + "/" +
-                deptDate +"/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn=0" +
-                "&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results";
-        String flightUrl;
-        if (way.equals("roundtrip"))
+        String deptDate = year + month + day;
+        String flightUrl = "";
+        if (way.equals("roundtrip")) {
+            String yearArrival = arrivalDate.split("20")[1];
+            yearArrival = year.split("-")[0];
+            String monthArrival = arrivalDate.split("-")[1];
+            String dayArrival = arrivalDate.split("-")[2];
+            String arrDate = yearArrival + monthArrival + dayArrival;
+            String flightRoundTrip = "https://www.skyscanner.com/transport/flights/" + departureCode.toLowerCase() + "/" + arrivalCode.toLowerCase() + "/" +
+                    deptDate + "/" + arrDate + "/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0" +
+                    "&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results";
             flightUrl = flightRoundTrip;
-        else
+        } else if (way.equals("oneway")) {
+            String flightOneway = "https://www.skyscanner.com/transport/flights/" + departureCode.toLowerCase() + "/" + arrivalCode.toLowerCase() + "/" +
+                    deptDate + "/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0" +
+                    "&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results";
             flightUrl = flightOneway;
-
+        }
         Uri uriUrl = Uri.parse(flightUrl);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
